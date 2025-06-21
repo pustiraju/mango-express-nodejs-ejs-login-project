@@ -1,0 +1,261 @@
+<section class="tempBanner">
+    <div id="banner"
+        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-xl bg-rose-200 text-black p-6 text-center shadow-2xl z-50 rounded-2xl border border-gray-300">
+
+        <button
+            class="absolute top-2 right-2 text-white bg-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+            onclick="closeBanner()">
+            &times;
+        </button>
+
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">🎓 Short Course Launched!</h2>
+        <p class="text-sm sm:text-base mb-4">
+            A brand-new short-term course is on its way! Get ready to upskill with practical knowledge in a compact
+            format.
+        </p>
+        <a href="/digital-products"> <span
+                class="inline-block bg-yellow-400 text-black font-semibold px-4 py-1 rounded-full mb-3">
+                Explore
+            </span></a>
+
+
+    </div>
+</section>
+
+
+<section>
+    <div class="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
+        <!-- Background Slideshow -->
+        <div class="absolute inset-0 slideshow z-0">
+            <!-- Desktop Images -->
+            <div class="h-full w-full">
+                <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity ease-in-out duration-1000"
+                    style="background-image: url('/images/1.jpg')"></div>
+                <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity ease-in-out duration-1000"
+                    style="background-image: url('/images/4.jpg')"></div>
+                <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity ease-in-out duration-1000"
+                    style="background-image: url('/images/3.jpg')"></div>
+                <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity ease-in-out duration-1000"
+                    style="background-image: url('images/13.jpg')"></div>
+            </div>
+
+            <!-- Optional: Mobile Images -->
+            <!--
+      <div class="block md:hidden h-full w-full">
+        <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000" style="background-image: url('images/');"></div>
+        <div class="slide h-full w-full bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000" style="background-image: url('images/mobile2.jpg');"></div>
+      </div>
+      -->
+
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+        </div>
+
+        <!-- Foreground Content -->
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 text-cyan-300" data-aos="zoom-in"
+                data-aos-duration="1500">
+                Welcome to <b class="text-orange-500" style="text-shadow: 3px 3px 1px rgb(255, 0, 0)">Yoga
+                    Samadhan</b>
+            </h1>
+            <p id="forTextColorChange"
+                class="text-lg transition-colors duration-1000 text-cyan-800 font-semibold md:font-bold mb-8 px-10"
+                data-aos="zoom-in" data-aos-duration="1500">
+                We provide comprehensive wellness services, including yoga therapy,
+                specialized courses, physiotherapy, and certified teacher training.
+                Our holistic approach supports physical, mental, and spiritual
+                well-being, empowering individuals to lead healthier, more balanced,
+                and mindful lives through guided practices and education.
+            </p>
+            <a href="/services"
+                class="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+                data-aos="flip-right" data-aos-duration="1500">
+                Start Your Wellness Journey
+            </a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div
+        class="flex flex-col md:flex-row items-center gap-10 p-4 md:p-10 bg-gradient-to-r from-yellow-400 to-yellow-100">
+        <div class="max-w-prose text-left flex-1" data-aos="zoom-in">
+            <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
+                What is <strong class="text-indigo-600">Yoga</strong>
+            </h1>
+            <p class="mt-4 sm:text-lg/relaxed text-gray-800">
+                Yoga, derived from the Sanskrit word “yuj,” means to unite or join.
+                This ancient practice combines physical postures (asanas), breathing
+                techniques (pranayama), meditation, and ethical principles to
+                promote harmony between the mind, body, and spirit. While its
+                origins are deeply spiritual, yoga today is widely recognized as a
+                versatile approach to physical fitness and mental well-being.
+            </p>
+            <div class="mt-4 flex gap-4 sm:mt-6">
+                <a class="inline-block rounded border border-red-800 px-5 py-3 font-medium text-cyan-800 shadow-sm transition-colors hover:bg-gray-500 hover:text-white"
+                    href="/courses">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        <div class="flex-1" data-aos="zoom-in">
+            <img class="w-full md:h-96 object-cover rounded-lg shadow-lg" src="/images/3.jpg" alt="Yoga" />
+        </div>
+    </div>
+</section>
+
+<section">
+    <div class="bg-gradient-to-r from-yellow-500 to-yellow-200 max-w-8xl mx-auto  shadow-lg p-6 md:p-10 lg:p-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-indigo-700 mb-6 text-center">
+            Benefits of Yoga
+        </h2>
+
+        <div class="space-y-6" data-aos="zoom-in" data-aos-delay="300">
+            <p class="text-gray-700 text-sm md:text-base lg:text-lg">
+                <strong class="text-indigo-600">Improved Flexibility:</strong>
+                Regular practice stretches and strengthens muscles, improving
+                overall flexibility and reducing stiffness.
+            </p>
+
+            <p class="text-gray-700 text-sm md:text-base lg:text-lg">
+                <strong class="text-indigo-600">Enhanced Strength and Balance:</strong>
+                Yoga poses, such as the Warrior series, build muscle strength while
+                enhancing balance and coordination.
+            </p>
+
+            <p class="text-gray-700 text-sm md:text-base lg:text-lg">
+                <strong class="text-indigo-600">Better Posture:</strong> Yoga
+                strengthens the spine and core muscles, correcting postural
+                imbalances caused by prolonged sitting or poor habits.
+            </p>
+
+            <p class="text-gray-700 text-sm md:text-base lg:text-lg">
+                <strong class="text-indigo-600">Pain Relief:</strong> Practices like
+                restorative yoga can alleviate chronic pain conditions, such as
+                lower back pain and arthritis.
+            </p>
+
+            <p class="text-gray-700 text-sm md:text-base lg:text-lg">
+                <strong class="text-indigo-600">Boosted Immunity:</strong> Yoga
+                stimulates the lymphatic system, improving the body’s ability to
+                fight infections and toxins.
+            </p>
+        </div>
+    </div>
+    </section>
+
+
+
+    <section class=" bg-gradient-to-r from-yellow-500 to-yellow-200 px-4 py-12 sm:px-6 lg:px-8 max-w-8xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-800" data-aos="flip-right"
+            data-aos-duration="1000">🧘 Explore Our Offerings at
+            <span class="text-indigo-600">Yoga Samadhan</span>
+        </h2>
+
+        <div class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" data-aos="zoom-in">
+            <!-- Daily Yoga Sessions -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">🌞 Daily Yoga Sessions</h3>
+                <p class="text-gray-600 text-sm sm:text-base">Live morning and evening classes via Zoom or YouTube.
+                </p>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base">Includes: <strong>Asanas</strong>,
+                    <strong>Pranayama</strong>,
+                    and <strong>Meditation</strong>.
+                </p>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base">For all levels: <em>Beginner to Advanced</em>.
+                </p>
+            </div>
+
+            <!-- Custom Yoga Plans -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+                data-aos="zoom-in">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">🧘‍♀️ Custom Yoga Plans</h3>
+                <p class="text-gray-600 text-sm sm:text-base">Personalized 1:1 coaching tailored for:</p>
+                <ul class="list-disc list-inside mt-2 text-gray-600 text-sm sm:text-base">
+                    <li>Weight management</li>
+                    <li>Back pain relief</li>
+                    <li>PCOS/PCOD support</li>
+                    <li>Stress and anxiety reduction</li>
+                    <li>Prenatal and postnatal care</li>
+                </ul>
+            </div>
+
+            <!-- Yoga Courses -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+                data-aos="zoom-in">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">📖 Yoga Courses</h3>
+                <ul class="list-disc list-inside text-gray-600 text-sm sm:text-base">
+                    <li>Free 7-Day Beginner Challenge</li>
+                    <li>30-Day Wellness Program</li>
+                    <li>200-Hour Yoga Teacher Certification</li>
+                    <li>Lifetime access to videos, PDFs, and guides</li>
+                </ul>
+            </div>
+
+            <!-- Pranayama & Meditation -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+                data-aos="zoom-in">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">🌬️ Pranayama & Meditation</h3>
+                <p class="text-gray-600 text-sm sm:text-base">Master breathing techniques to enhance:</p>
+                <ul class="list-disc list-inside mt-2 text-gray-600 text-sm sm:text-base">
+                    <li>Lung strength</li>
+                    <li>Mental clarity</li>
+                    <li>Inner calm</li>
+                </ul>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base">Daily guided meditation included.</p>
+            </div>
+
+            <!-- Group Yoga -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+                data-aos="zoom-in">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">👥 Group Yoga</h3>
+                <p class="text-gray-600 text-sm sm:text-base">Sessions for schools, offices, and NGOs.</p>
+                <p class="mt-2 text-gray-600 text-sm sm:text-base">Online or in-person, focusing on stress relief
+                    and team
+                    bonding.</p>
+            </div>
+
+            <!-- Exclusive Yoga Packages -->
+            <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+                data-aos="zoom-in">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 text-gray-900">🎁 Exclusive Packages</h3>
+                <ul class="list-disc list-inside text-gray-600 text-sm sm:text-base">
+                    <li>Unlimited Monthly Membership</li>
+                    <li>Family Plans with group discounts</li>
+                    <li>Seasonal Yoga Retreats</li>
+                </ul>
+            </div>
+
+    </section>
+
+    <section>
+        <div class="flex flex-wrap items-center justify-center bg-yellow-400 ">
+            <div class="w-full md:w-2/3 p-2">
+                <div class="relative w-full pb-[56.25%] h-0">
+                    <iframe id="videoFrame" class="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl"
+                        src="https://www.youtube.com/embed/4FATtQ2bVfI" title="Yoga Presentation" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen data-aos="zoom-in">
+                    </iframe>
+                    <!-- Prev Button -->
+                    <button id="prevVideoBtn"
+                        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white p-2 sm:p-3 rounded-full">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Next Button -->
+                    <button id="nextVideoBtn"
+                        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white p-2 sm:p-3 rounded-full">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>

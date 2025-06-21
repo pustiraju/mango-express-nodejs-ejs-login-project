@@ -1,0 +1,23 @@
+{
+    "name": "ejs-tailwind-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "build:css": "npx @tailwindcss/cli -i ./src/styles/tailwind.css -o ./public/css/style.css --watch"
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.10",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "mongodb": "^6.17.0",
+        "mongoose": "^8.16.0",
+        "nodemon": "^3.1.10"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.14",
+        "postcss": "^8.4.21",
+        "tailwindcss": "^3.4.17"
+    }
+}

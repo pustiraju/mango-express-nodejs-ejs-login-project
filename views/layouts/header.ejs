@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="select-none">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LB29LY4E5P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LB29LY4E5P');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Offering yoga therapy, courses, physiotherapy, and teacher 
+    training for holistic wellness and balanced living. Join us to nurture body, mind, and spirit." />
+    <meta name="keywords" content="yoga treatment, yoga courses, Yoga Teacher Training, holistic wellness" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <title>Yoga Samadhan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/b2750b28af.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-500 ">
+    <nav class="bg-yellow-500 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex flex-shrink-0">
+                    <a href="/" class="text-gray-800 text-2xl"><img class="w-[200px] h-[41px] md:w-[240px] md:h-[50px]"
+                            src="/images/logo1.png" alt="logo" /></a>
+                </div>
+
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-center space-x-2 lg:space-x-4">
+                        <a href="/"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="/services"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+
+                        <!-- Courses link with dropdown -->
+                        <div class="relative group">
+                            <a
+                                class="pointer-events: none; text-gray-800 hover:bg-yellow-600 hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">Courses</a>
+                            <div
+                                class="absolute hidden group-hover:block bg-yellow-500  shadow-lg rounded-md mt-1 w-48">
+                                <a href="/digital-products"
+                                    class="block px-4 py-2 text-sm text-gray-800  hover:bg-yellow-600 hover:text-white transition-colors">Digital
+                                    Products</a>
+                                <a href="/courses"
+                                    class="block px-4 py-2 text-sm text-gray-800 hover:bg-yellow-600 hover:text-white transition-colors">AYUS
+                                    and Physiotherapy</a>
+                            </div>
+                        </div>
+
+                        <a href="/gallery"
+                            class="text-gray-800 hover:bg-yellow-600  hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
+                        <a href="/blog"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <p class="whitespace-nowrap">Our Blog</p>
+                        </a>
+                        <a href="/contact"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white md:px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                        <a href="/yscb"
+                            class="bg-yellow-400 border border-red-800 md:px-3 lg:px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 hover:text-white transition-colors">YSCB</a>
+                    </div>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" id="mobileMenuButton"
+                        class="text-gray-800 hover:bg-yellow-600 inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden hidden" id="mobileMenu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/"
+                    class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="/services"
+                    class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <div>
+                    <button type="button" id="mobileCoursesToggle"
+                        class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left flex justify-between items-center">
+                        Courses
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4 space-y-1" id="mobileCoursesDropdown">
+                        <a href="/digital-products"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Digital
+                            Products</a>
+                        <a href="/courses"
+                            class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">AYUS
+                            and Physiotherapy</a>
+                    </div>
+                </div>
+                <a href="/gallery"
+                    class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Gallery</a>
+                <a href="/contact"
+                    class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a href="/blog"
+                    class="text-gray-800 hover:bg-yellow-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our
+                    Blog</a>
+                <a href="/yscb"
+                    class="bg-red-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-900 transition-colors">
+                    <p class="hidden md:block">YSCB</p>
+                    <strong class="md:hidden hover:text-white">YOGA SAMADHAN CERTIFICATION BOARD</strong>
+                </a>
+            </div>
+        </div>
+    </nav>
