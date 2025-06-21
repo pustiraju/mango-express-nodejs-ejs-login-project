@@ -48,15 +48,20 @@ app.post("/register", async (req, res) => {
 
 
 app.post("/", async (req, res) => {
-  const { username, password } = req.body;
-    log(req.body);
-  const user = await registeredUser.findOne({ username });
-log(user);
-  //const isMatch = await bcrypt.compare(password, user.password);
-  if (!user || !isMatch) {
-    return res.status(400).send("Invalid username or password");
+  const { email , password } = req.body;
+    
+  const userdetails = await registeredUser.findOne({ email: email });
+  const isMatch = await bcrypt.compare(password, userdetails.password);
+ 
+ 
+  if  (!userdetails.email || !isMatch) {
+     res.render("fullpages/loginform", {
+          error: "WRONG CREDENTIALS",
+        });
   }else {
-    res.status(200).send("Login successful");
+    res.render("fullpages/loginform", {
+          message: "LOGIN successful",
+        });
   } 
  
 });
