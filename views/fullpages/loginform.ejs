@@ -66,6 +66,7 @@
  <% if(typeof redirect !== 'undefined') {%>
   <script>
    document.getElementById("redirect").classList.remove("hidden");
+   document.getElementsByTagName("form")[0].classList.add("opacity-10");
      setTimeout(() => {
       window.location.href = '/register';
     }, 4000); 
