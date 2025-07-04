@@ -56,10 +56,10 @@ app.post("/register", async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new registeredUser({ username, email, password: hashedPassword });
+    const newUser = new registeredUser({ username, email, password : hashedPassword });
     await newUser.save();
 
-    return res.status(201).send("User registered successfully");
+    return res.render("fullpages/loginform", { message: "Registration successful! Please log in." });
   } catch (error) {
     console.error("Registration Error:", error);
     return res.status(500).send("Server error during registration");
@@ -77,7 +77,7 @@ app.post("/", async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.render("fullpages/loginform", { error: "Invalid email or password" });
+      return res.render("fullpages/loginform", { error: "Invalid password" });
     }
 
     const otp = Math.floor(100000 + Math.random() * 900000);
