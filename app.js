@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const path = require("path");
 const session = require("express-session");
 const nodemailer = require("nodemailer");
-const { registeredUser } = require("./model/user");
+const User  = require("./model/user");
 const { log } = require("console");
 require("./db");
 
@@ -46,17 +46,18 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
+  log("Received registration data:", { name, email, password }); 
 
   try {
-    const existingUser = await registeredUser.findOne({ email });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).send("User already exists");
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new registeredUser({ username, email, password : hashedPassword });
+    const newUser = new User({ name, email, password : hashedPassword });
     await newUser.save();
 
     return res.render("fullpages/loginform", { message: "Registration successful! Please log in." });
@@ -70,7 +71,7 @@ app.post("/", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await registeredUser.findOne({ email });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.render("fullpages/loginform", { error: "User not found" });
     }
@@ -83,13 +84,13 @@ app.post("/", async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000);
     req.session.otp = otp;
     console.log("Generated OTP:", otp); // Log the generated OTP for debugging
-    req.session.username = user.username;
+    req.session.username = user.name;
 
     const mailOptions = {
       from: 'rajupusti@yahoo.com',
       to: email,
       subject: 'Your OTP for Login',
-      text: `Hello ${user.username}, your OTP is ${otp}, generated at ${new Date().toLocaleString()}. Please use this OTP to complete your login process.`,
+      text: `Hello ${user.name}, your OTP is ${otp}, generated at ${new Date().toLocaleString()}. Please use this OTP to complete your login process.`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
