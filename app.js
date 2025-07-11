@@ -129,7 +129,48 @@ app.post("/receiver", (req, res) => {
   }
 });
 
-// Start server
+app.get("/forgot", (req, res) => {
+  res.render("fullpages/forgotpassword"); 
+});
+
+
+app.post("/forgot", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    req.session.otp = otp;
+    req.session.otpExpires = Date.now() + 5 * 60 * 1000; 
+    console.log("Generated OTP for password reset:", otp); 
+    const mailOptions = {
+      from: 'rajupusti@yahoo.com',
+      to: email,
+      subject: 'Your OTP for Password Reset',
+      text: `Hello ${user.name},\n\nYour OTP is: ${otp}\nGenerated at: ${new Date().toLocaleString()}\n\nPlease use this OTP within 5 minutes to reset your password.`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Email sending error:", error);
+        return res.status(500).json({ message: "Failed to send OTP email" });
+      }
+      console.log("OTP email sent:", info.response);
+      res.redirect("/receiver")
+    }); 
+   
+
+  } catch (err) {
+    console.error("Server error:", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+
 app.listen(port, () => {
   console.log(`✅ Server running at http://localhost:${port}`);
 });
