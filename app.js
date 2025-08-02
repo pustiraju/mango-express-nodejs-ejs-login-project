@@ -53,18 +53,41 @@ app.post("/register", async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).send("User already exists");
+    }else{
+       const otp = Math.floor(100000 + Math.random() * 900000);
+        const hashedPassword = await bcrypt.hash(password, 10);
+    req.session.otp = otp;
+    req.session.name = name;
+    req.session.email = email;
+    req.session.password = hashedPassword;
+    console.log("Generated OTP:", otp); // Log the generated OTP for debugging
+
+    const mailOptions = {
+      from: 'rajupusti@yahoo.com',
+      to: email,
+      subject: 'Your OTP for Login',
+      text: `Hello ${name}, your OTP is ${otp}, generated at ${new Date().toLocaleString()}. Please use this OTP to complete your registration process.`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Email Error:", error);
+       
+      }
+
+      console.log('Email sent:', info.response);
+      return res.redirect("/receiver");
+    });
+
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+   
 
-    const newUser = new User({ name, email, password : hashedPassword });
-    await newUser.save();
-
-    return res.render("fullpages/loginform", { message: "Registration successful! Please log in." });
+    
   } catch (error) {
     console.error("Registration Error:", error);
-    return res.status(500).send("Server error during registration");
-  }
+    // return res.status(500).send("Server error during registration");
+   }
 });
 
 app.post("/", async (req, res) => {
@@ -96,7 +119,7 @@ app.post("/", async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error("Email Error:", error);
-        return res.status(500).send("Login successful but OTP email failed.");
+       
       }
 
       console.log('Email sent:', info.response);
@@ -117,15 +140,23 @@ app.get("/receiver", (req, res) => {
 });
 
 // Verify OTP
-app.post("/receiver", (req, res) => {
+app.post("/receiver", async (req, res) => {
   const { otpInput } = req.body;
   console.log("Received OTP input:", otpInput); // ✅ corrected
+   const { name, email, password } = req.session;
+   log("Session data:", { name, email, password }); // Log session data for debugging
 
   if (req.session.otp && otpInput === req.session.otp.toString()) {
     req.session.otp = null; // Clear OTP after use
-    return res.send("✅ OTP verified successfully");
+     log(name)
+    const newUser = new User({ name, email, password });
+    await newUser.save();
+  
+
+    return res.render("fullpages/loginform", { message: "Registration successful! Please log in." });
+    
   } else {
-    return res.status(400).send("❌ Invalid OTP");
+    return res.status(400).render("layouts/receiver")
   }
 });
 
@@ -159,13 +190,49 @@ app.post("/forgot", async (req, res) => {
         return res.status(500).json({ message: "Failed to send OTP email" });
       }
       console.log("OTP email sent:", info.response);
-      res.redirect("/receiver")
+      res.redirect("/otpreceiver")
     }); 
    
 
   } catch (err) {
     console.error("Server error:", err);
     return res.status(500).json({ message: "Internal server error" });
+  }
+});
+app.get("/otpreceiver", (req, res) => {
+  res.render("layouts/otpreceiver");
+});
+app.post("/otpreceiver", async (req, res) => {
+  const { otpInput } = req.body;
+  console.log("Received OTP input:", otpInput); 
+
+  if (req.session.otp && otpInput === req.session.otp.toString()) {
+  
+    req.session.otp = null; 
+    return res.render("fullpages/newpassword");
+  } else {
+    return res.status(400).render("layouts/otpreceiver", { error: "Invalid OTP" });
+  }
+});
+app.post("/newpassword", async (req, res) => {
+  const { newPassword } = req.body;
+  console.log("Received new password:", newPassword); 
+  req.session.password = null;
+
+  
+
+  try {
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    req.session.password = hashedPassword;
+    console.log("Hashed new password:", hashedPassword);
+
+    const user = await User.findOneAndUpdate({ email: req.session.email }, { password: hashedPassword }, { new: true });
+
+    req.session.otp = null; 
+    return res.render("fullpages/loginform", { error: "Password reset successful! Please log in." });
+  } catch (error) {
+    console.error("Error resetting password:", error);
+    return res.status(500).render("fullpages/newpassword");
   }
 });
 
